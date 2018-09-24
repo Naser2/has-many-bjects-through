@@ -1,12 +1,26 @@
-In addition to these one-to-one and one-to-many relationships, there are relationships that need something to join them together. For example, you don't need to have a direct relationship with the pilot of a flight you're on. You have a relationship with that flight (you're taking the flight after all), and and the pilot has a relationship with the flight (they're flying it). So you have a relationship to that pilot through the flight.
 
-If you take more than one flight, you'll have these kinds of relationships with more than one pilot, all still using your ticket as the middle man. The way we refer to this is that each customer has many pilots through tickets.
+   ***HAS MANY PILOTS THROUGH TICKETS ***
 
-Check out some more examples:
 
-A company that offers a network of doctors to their employees through the company's insurance program
-A user on a popular media sharing site can have many "likes", that occur through the pictures they post
-A Lyft driver that you are connected to through the rides you've taken with them
-In this lesson, we'll build out just such a relationship using waiters, customers, and meals. A customer has many meals, and a customer has many waiters through those meals. Similarly, a waiter has many meals, and has many customers through meals.
+       ***Building out our Classes ***
+Let's start by building out the Customer class and Waiter class. We want to make sure, when building out classes, that there's something to store each instance. That is to say: the Customer class should know about every customer instance that gets created.
 
- # has many pilots through tickets.
+   ***The "has many through" Relationship ****
+In real life, as a customer, each time you go out to eat, you have a different meal. Even if you order the same exact thing in the exact same restaurant, it's a different instance of that meal. So it goes without saying that a customer can have many meals.
+
+
+
+ ***How Does That Work in Code? ****
+Great question! The way we're going to structure this relationship is by setting up our Meal class as a 'joining' model between our Waiter and our Customer classes. And because we're obeying the single source of truth, we're going to tell the Meal class to know all the details of each meal instance. That includes not only the total cost and the tip (which defaults to 0), but also who the customer and waiter were for each meal.
+
+
+           ***Further Practice ****
+Below you'll find all the code for the Customer class, including a few new methods, and you already have all the code for the Meal class. Try building out the Waiter class to match these patterns and then build methods to return the following.
+
+The average years of experience of all waiters:
+
+1- A list of the names of customers that a specific waiter has served
+2- The customer that has tipped a specific waiter the highest
+3- The average tips for the most experienced waiter and the average tips for the 4- least experienced waiter.
+
+END
